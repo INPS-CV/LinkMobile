@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Redirecionamento para a App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+
+    const linkIOS = "https://apps.apple.com/cv/app/inps-mobile/id6743176543";
+    const linkAndroid = "https://play.google.com/store/apps/details?id=com.inpsmobileapp ";
+
+    window.onload = function () {
+
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(userAgent)) {
+    window.location.href = linkAndroid;
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    window.location.href = linkIOS;
+    } else {
+    // Se não for Android nem iOS, mostrar uma mensagem ou página neutra
+    document.getElementById("mensagem").innerText = "Por favor aceda a este link num dispositivo móvel.";
+    }
+    };
+</script>
+    </head>
+    <body>
+    <p id="mensagem">A redirecionar...</p>
+</body>
+</html>
